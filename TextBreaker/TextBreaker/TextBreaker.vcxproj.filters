@@ -19,5 +19,29 @@
     <Filter Include="소스 파일\Engine">
       <UniqueIdentifier>{1843e90a-707c-4d83-bd07-fd55384679e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Engine\GameContext">
+      <UniqueIdentifier>{1fe12179-ccf1-4196-afe8-fa693d7c8316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\GameContext">
+      <UniqueIdentifier>{8368d3c5-884e-407b-9625-18048564945e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\구상파일\구상파일.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Src\main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\GameContext\GameContextData.cpp">
+      <Filter>소스 파일\Engine\GameContext</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Include\GameContext\GameContextData.hpp">
+      <Filter>헤더 파일\Engine\GameContext</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
