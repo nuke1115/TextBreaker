@@ -28,9 +28,9 @@ int TextGameEngine::IO::ConsoleIOManager::ScanFromConsole_s(const char* const fo
     return retValue;
 }
 
-void TextGameEngine::IO::ConsoleIOManager::SetColor(WORD colorBit)
+bool TextGameEngine::IO::ConsoleIOManager::SetColor(WORD colorBit)
 {
-    SetConsoleTextAttribute(_stdOut, colorBit);
+    return SetConsoleTextAttribute(_stdOut, colorBit);
 }
 
 bool TextGameEngine::IO::ConsoleIOManager::IsKeyDown(int vKey)

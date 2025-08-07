@@ -24,7 +24,7 @@ namespace TextGameEngine
 
             int PrintToConsole(const char* const format, ...);
             int ScanFromConsole_s(const char* const format, ...);
-            void SetColor(WORD colorBit);
+            bool SetColor(WORD colorBit);
             bool SetCursorPosition(COORD pos);
 
             bool IsKeyDown(int vKey);
