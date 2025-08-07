@@ -27,6 +27,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\GameContext\GameContextData.hpp" />
+    <ClInclude Include="..\Include\IO\Colors.hpp" />
+    <ClInclude Include="..\Include\IO\ConsoleIOManager.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
