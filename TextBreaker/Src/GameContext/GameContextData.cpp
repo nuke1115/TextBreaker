@@ -16,11 +16,11 @@ const std::string& TextGameEngine::GameContext::GameContextData::GetNowSceneName
     return _nowSceneName;
 }
 
-constexpr double TextGameEngine::GameContext::GameContextData::GetFrameTimeInterval() const
+double TextGameEngine::GameContext::GameContextData::GetFrameTimeInterval() const
 {
     return _frameTimeInterval;
 }
-constexpr double TextGameEngine::GameContext::GameContextData::GetFixedTimeInterval() const
+double TextGameEngine::GameContext::GameContextData::GetFixedTimeInterval() const
 {
     return _fixedTimeInterval;
 }
