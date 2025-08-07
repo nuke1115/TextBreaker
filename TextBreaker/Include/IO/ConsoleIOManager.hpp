@@ -26,6 +26,8 @@ namespace TextGameEngine
             int ScanFromConsole_s(const char* const format, ...);
             void SetColor(WORD colorBit);
 
+            bool IsKeyDown(int vKey);
+
         };
     }
 }

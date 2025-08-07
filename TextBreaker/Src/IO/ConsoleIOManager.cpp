@@ -6,7 +6,6 @@ TextGameEngine::IO::ConsoleIOManager::ConsoleIOManager()
     _stdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 }
 
-
 int TextGameEngine::IO::ConsoleIOManager::PrintToConsole(const char* const format, ...)
 {
     va_list args;
@@ -32,4 +31,9 @@ int TextGameEngine::IO::ConsoleIOManager::ScanFromConsole_s(const char* const fo
 void TextGameEngine::IO::ConsoleIOManager::SetColor(WORD colorBit)
 {
     SetConsoleTextAttribute(_stdOut, colorBit);
+}
+
+bool TextGameEngine::IO::ConsoleIOManager::IsKeyDown(int vKey)
+{
+    return GetKeyState(vKey) & 0x8000;
 }
