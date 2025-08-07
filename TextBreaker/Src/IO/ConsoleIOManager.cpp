@@ -28,3 +28,8 @@ int TextGameEngine::IO::ConsoleIOManager::ScanFromConsole_s(const char* const fo
     va_end(args);
     return retValue;
 }
+
+void TextGameEngine::IO::ConsoleIOManager::SetColor(WORD colorBit)
+{
+    SetConsoleTextAttribute(_stdOut, colorBit);
+}

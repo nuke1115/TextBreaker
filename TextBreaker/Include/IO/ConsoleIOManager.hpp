@@ -24,6 +24,7 @@ namespace TextGameEngine
 
             int PrintToConsole(const char* const format, ...);
             int ScanFromConsole_s(const char* const format, ...);
+            void SetColor(WORD colorBit);
 
         };
     }
