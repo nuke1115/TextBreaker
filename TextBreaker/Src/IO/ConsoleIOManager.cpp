@@ -37,3 +37,8 @@ bool TextGameEngine::IO::ConsoleIOManager::IsKeyDown(int vKey)
 {
     return GetKeyState(vKey) & 0x8000;
 }
+
+bool TextGameEngine::IO::ConsoleIOManager::SetCursorPosition(COORD pos)
+{
+    return SetConsoleCursorPosition(_stdOut, pos);
+}
