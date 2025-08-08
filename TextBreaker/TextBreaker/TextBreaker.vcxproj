@@ -24,7 +24,6 @@
   <ItemGroup>
     <ClCompile Include="..\Src\GameContext\GameContextData.cpp" />
     <ClCompile Include="..\Src\IO\ConsoleIOManager.cpp" />
-    <ClCompile Include="..\Src\IO\Renderer\Pixel.cpp" />
     <ClCompile Include="..\Src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -34,7 +33,6 @@
     <ClInclude Include="..\Include\IO\Renderer\Pixel.hpp" />
     <ClInclude Include="..\Include\IO\Renderer\Renderer.hpp" />
     <ClInclude Include="..\Include\IO\Renderer\Vector3Int.hpp" />
-    <ClInclude Include="..\Src\IO\Renderer\PixelINL.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
