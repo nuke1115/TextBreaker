@@ -82,11 +82,11 @@
     <ClInclude Include="..\Include\IO\Renderer\Vector3Int.hpp">
       <Filter>헤더 파일\Engine\IO\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Include\Utils\U\ArrayUtils.hpp">
-      <Filter>헤더 파일\Engine\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="..\Src\Utils\ArrayUtilsTPP.hpp">
       <Filter>소스 파일\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Utils\ArrayUtils.hpp">
+      <Filter>헤더 파일\Engine\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

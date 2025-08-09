@@ -1,0 +1,116 @@
+#include "../../../Include/IO/Renderer/Renderer.hpp"
+
+TextGameEngine::IO::ConsoleRenderer::Renderer::Renderer(short xSize, short ySize, int clearZDepth, Pixel clearPixelData)
+{
+    _stdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    _screenSize.X = xSize;
+    _screenSize.Y = ySize;
+
+    _clearZDepth = clearZDepth;
+    _clearPixel = clearPixelData.pixelData;
+
+    if (_screenSize.X < 0 || _screenSize.Y < 0)
+    {
+        _pixelCount = 0;
+        _screenSize.X = 0;
+        _screenSize.Y = 0;
+    }
+
+    if (_clearZDepth < _clearZDepthMin)
+    {
+        _clearZDepth = _clearZDepthMin;
+    }
+    else if (_clearZDepth > _clearZDepthMax)
+    {
+        _clearZDepth = _clearZDepthMax;
+    }
+
+    _pixelCount = _screenSize.X * _screenSize.Y;
+
+    _drawRegion.Left=0;
+    _drawRegion.Top = 0;
+    _drawRegion.Right = _screenSize.X;
+    _drawRegion.Bottom = _screenSize.Y;
+
+    _zDepthBuffer = new int[_pixelCount];
+    _pixelBuffer = new CHAR_INFO[_pixelCount];
+
+    ClearPixelBuffer();
+    ClearZDepthBuffer();
+}
+
+TextGameEngine::IO::ConsoleRenderer::Renderer::~Renderer()
+{
+    if (_zDepthBuffer != nullptr)
+    {
+        delete[] _zDepthBuffer;
+    }
+
+    if (_pixelBuffer != nullptr)
+    {
+        delete[] _pixelBuffer;
+    }
+}
+
+bool TextGameEngine::IO::ConsoleRenderer::Renderer::Draw(const Pixel* pixels)
+{
+    if (pixels == nullptr || _pixelBuffer == nullptr || _zDepthBuffer == nullptr)
+    {
+        return false;
+    }
+
+    return false;
+}
+
+bool TextGameEngine::IO::ConsoleRenderer::Renderer::SendToConsoleScreenBuffer()
+{
+
+    if (_pixelBuffer == nullptr || _stdOut == INVALID_HANDLE_VALUE)
+    {
+        return false;
+    }
+
+    return WriteConsoleOutputA(_stdOut, _pixelBuffer, _screenSize, _screenSize, &_drawRegion);
+}
+
+void TextGameEngine::IO::ConsoleRenderer::Renderer::SetClearZDepth(int zDepth)
+{
+    _clearZDepth = zDepth;
+
+    if (zDepth < _clearZDepthMin)
+    {
+        _clearZDepth = _clearZDepthMin;
+    }
+    else if (zDepth > _clearZDepthMax)
+    {
+        _clearZDepth = _clearZDepthMax;
+    }
+}
+void TextGameEngine::IO::ConsoleRenderer::Renderer::SetClearPixel(Pixel pixel)
+{
+    _clearPixel = pixel.pixelData;
+}
+
+bool TextGameEngine::IO::ConsoleRenderer::Renderer::ClearZDepthBuffer()
+{
+
+    if (_zDepthBuffer == nullptr)
+    {
+        return false;
+    }
+
+    Utils::ArrayUtils::FillValue<int>(_zDepthBuffer, _clearZDepth, _pixelCount);
+
+    return true;
+}
+bool TextGameEngine::IO::ConsoleRenderer::Renderer::ClearPixelBuffer()
+{
+    if (_pixelBuffer == nullptr)
+    {
+        return false;
+    }
+
+    Utils::ArrayUtils::FillValue<CHAR_INFO>(_pixelBuffer, _clearPixel, _pixelCount);
+
+    return true;
+}
