@@ -52,14 +52,34 @@ TextGameEngine::IO::ConsoleRenderer::Renderer::~Renderer()
     }
 }
 
-bool TextGameEngine::IO::ConsoleRenderer::Renderer::Draw(const Pixel* pixels)
+bool TextGameEngine::IO::ConsoleRenderer::Renderer::Draw(const Pixel* pixels, uint32_t arrayLength)
 {
     if (pixels == nullptr || _pixelBuffer == nullptr || _zDepthBuffer == nullptr)
     {
         return false;
     }
 
-    return false;
+    for (uint32_t index = 0; index < arrayLength; index++)
+    {
+        int xPos = pixels[index].pos.x, yPos = pixels[index].pos.y, zPos = pixels[index].pos.z;
+
+        if (xPos < 0 || xPos >= _screenSize.X || yPos < 0 || yPos >= _screenSize.Y)
+        {
+            continue;
+        }
+
+        uint32_t pixelCoord = static_cast<uint32_t>(yPos) * _screenSize.X + static_cast<uint32_t>(xPos);
+        
+        if (zPos < _zDepthBuffer[pixelCoord])
+        {
+            continue;
+        }
+
+        _zDepthBuffer[pixelCoord] = zPos;
+        _pixelBuffer[pixelCoord] = pixels[index].pixelData;
+    }
+
+    return true;
 }
 
 bool TextGameEngine::IO::ConsoleRenderer::Renderer::SendToConsoleScreenBuffer()
@@ -70,7 +90,8 @@ bool TextGameEngine::IO::ConsoleRenderer::Renderer::SendToConsoleScreenBuffer()
         return false;
     }
 
-    return WriteConsoleOutputA(_stdOut, _pixelBuffer, _screenSize, _screenSize, &_drawRegion);
+    constexpr COORD _zeroTmp = { 0,0 };
+    return WriteConsoleOutputA(_stdOut, _pixelBuffer, _screenSize, _zeroTmp, &_drawRegion);
 }
 
 void TextGameEngine::IO::ConsoleRenderer::Renderer::SetClearZDepth(int zDepth)

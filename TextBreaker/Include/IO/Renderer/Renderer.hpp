@@ -22,19 +22,20 @@ namespace TextGameEngine
                 
                 CHAR_INFO _clearPixel;
                 int _clearZDepth = 0;
-                const int _clearZDepthMin = -2;
-                const int _clearZDepthMax = 2;
+                static constexpr int _clearZDepthMin = -2;
+                static constexpr int _clearZDepthMax = 2;
                 
+                
+                SMALL_RECT _drawRegion = { 0, };
                 uint32_t _pixelCount = 0;
                 COORD _screenSize = { 0, };
-                SMALL_RECT _drawRegion = { 0, };
             public:
                 Renderer(short xSize, short ySize, int clearZDepth, Pixel clearPixelData);
                 Renderer(const Renderer&) = delete;
                 Renderer(Renderer&&) = delete;
                 ~Renderer();
 
-                bool Draw(const Pixel* pixels);
+                bool Draw(const Pixel* pixels, uint32_t arrayLength);
 
                 bool SendToConsoleScreenBuffer();
 
