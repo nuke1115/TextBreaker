@@ -15,6 +15,6 @@ namespace TextGameEngine
     }
 }
 
-#include "../../../Src/Utils/ArrayUtilsTPP.hpp"
+#include "../../Src/Utils/ArrayUtilsTPP.hpp"
 
 #endif
