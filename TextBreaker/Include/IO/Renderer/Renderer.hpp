@@ -46,6 +46,16 @@ namespace TextGameEngine
                 bool ClearPixelBuffer();
 
                 bool CopyToBuffer(Pixel* pixels, uint32_t arrayLength);
+                
+                COORD GetScreenSize() const;
+
+                int GetZDepthMin() const;
+                int GetZDepthMax() const;
+                int GetClearZDepth() const;
+                CHAR_INFO GetClearPixel() const;
+
+                bool GetHandleState() const;
+
             };
         }
     }

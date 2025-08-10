@@ -159,3 +159,30 @@ bool TextGameEngine::IO::ConsoleRenderer::Renderer::CopyToBuffer(Pixel* pixels, 
 
     return true;
 }
+
+COORD TextGameEngine::IO::ConsoleRenderer::Renderer::GetScreenSize() const
+{
+    return _screenSize;
+}
+
+int TextGameEngine::IO::ConsoleRenderer::Renderer::GetZDepthMin() const
+{
+    return _clearZDepthMin;
+}
+int TextGameEngine::IO::ConsoleRenderer::Renderer::GetZDepthMax() const
+{
+    return _clearZDepthMax;
+}
+int TextGameEngine::IO::ConsoleRenderer::Renderer::GetClearZDepth() const
+{
+    return _clearZDepth;
+}
+CHAR_INFO TextGameEngine::IO::ConsoleRenderer::Renderer::GetClearPixel() const
+{
+    return _clearPixel;
+}
+
+bool TextGameEngine::IO::ConsoleRenderer::Renderer::GetHandleState() const
+{
+    return _stdOut != INVALID_HANDLE_VALUE;
+}
