@@ -134,3 +134,28 @@ bool TextGameEngine::IO::ConsoleRenderer::Renderer::ClearPixelBuffer()
 
     return true;
 }
+
+bool TextGameEngine::IO::ConsoleRenderer::Renderer::CopyToBuffer(Pixel* pixels, uint32_t arrayLength)
+{
+    if (pixels == nullptr || _pixelBuffer == nullptr || _zDepthBuffer == nullptr || _pixelCount != arrayLength)
+    {
+        return false;
+    }
+
+    for (uint32_t index = 0, y = -1, x = 0; index < _pixelCount; index++)
+    {
+        x = index % _screenSize.X;
+
+        if (index % _screenSize.Y == 0)
+        {
+            y++;
+        }
+
+        pixels[index].pixelData = _pixelBuffer[index];
+        pixels[index].pos.x = x;
+        pixels[index].pos.y = y;
+        pixels[index].pos.z = _zDepthBuffer[index];
+    }
+
+    return true;
+}

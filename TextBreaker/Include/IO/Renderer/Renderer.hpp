@@ -44,6 +44,8 @@ namespace TextGameEngine
 
                 bool ClearZDepthBuffer();
                 bool ClearPixelBuffer();
+
+                bool CopyToBuffer(Pixel* pixels, uint32_t arrayLength);
             };
         }
     }
