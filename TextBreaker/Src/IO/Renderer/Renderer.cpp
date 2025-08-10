@@ -27,7 +27,7 @@ TextGameEngine::IO::ConsoleRenderer::Renderer::Renderer(short xSize, short ySize
 
     _pixelCount = static_cast<uint32_t>(_screenSize.X) * static_cast<uint32_t>(_screenSize.Y);
 
-    _drawRegion.Left=0;
+    _drawRegion.Left = 0;
     _drawRegion.Top = 0;
     _drawRegion.Right = _screenSize.X;
     _drawRegion.Bottom = _screenSize.Y;
@@ -90,8 +90,7 @@ bool TextGameEngine::IO::ConsoleRenderer::Renderer::SendToConsoleScreenBuffer()
         return false;
     }
 
-    constexpr COORD _zeroTmp = { 0,0 };
-    return WriteConsoleOutputA(_stdOut, _pixelBuffer, _screenSize, _zeroTmp, &_drawRegion);
+    return WriteConsoleOutputA(_stdOut, _pixelBuffer, _screenSize, _pixelBufferOriginPos, &_drawRegion);
 }
 
 void TextGameEngine::IO::ConsoleRenderer::Renderer::SetClearZDepth(int zDepth)
