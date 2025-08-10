@@ -24,12 +24,18 @@
   <ItemGroup>
     <ClCompile Include="..\Src\GameContext\GameContextData.cpp" />
     <ClCompile Include="..\Src\IO\ConsoleIOManager.cpp" />
+    <ClCompile Include="..\Src\IO\Renderer\Renderer.cpp" />
     <ClCompile Include="..\Src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\GameContext\GameContextData.hpp" />
     <ClInclude Include="..\Include\IO\Colors.hpp" />
     <ClInclude Include="..\Include\IO\ConsoleIOManager.hpp" />
+    <ClInclude Include="..\Include\IO\Renderer\Pixel.hpp" />
+    <ClInclude Include="..\Include\IO\Renderer\Renderer.hpp" />
+    <ClInclude Include="..\Include\IO\Renderer\Vector3Int.hpp" />
+    <ClInclude Include="..\Include\Utils\ArrayUtils.hpp" />
+    <ClInclude Include="..\Src\Utils\ArrayUtilsTPP.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -115,6 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

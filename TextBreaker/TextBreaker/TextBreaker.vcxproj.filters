@@ -31,6 +31,18 @@
     <Filter Include="소스 파일\Engine\IO">
       <UniqueIdentifier>{184d325c-9c22-4b9c-bd36-0c1b5070853f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Engine\IO\Renderer">
+      <UniqueIdentifier>{aceefca6-58b0-4fd8-bbc1-bd0247c4cd6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\IO\Renderer">
+      <UniqueIdentifier>{d640e34c-ad20-4a52-9832-dcd9d347bdfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utils">
+      <UniqueIdentifier>{1f26f4b8-b4d9-4be0-8e09-ba8aacd29988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Utils">
+      <UniqueIdentifier>{861f881f-2df8-4b0d-aaf3-81a3808a5623}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\구상파일\구상파일.txt">
@@ -47,6 +59,9 @@
     <ClCompile Include="..\Src\IO\ConsoleIOManager.cpp">
       <Filter>소스 파일\Engine\IO</Filter>
     </ClCompile>
+    <ClCompile Include="..\Src\IO\Renderer\Renderer.cpp">
+      <Filter>소스 파일\Engine\IO\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\GameContext\GameContextData.hpp">
@@ -57,6 +72,21 @@
     </ClInclude>
     <ClInclude Include="..\Include\IO\Colors.hpp">
       <Filter>헤더 파일\Engine\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\IO\Renderer\Renderer.hpp">
+      <Filter>헤더 파일\Engine\IO\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\IO\Renderer\Pixel.hpp">
+      <Filter>헤더 파일\Engine\IO\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\IO\Renderer\Vector3Int.hpp">
+      <Filter>헤더 파일\Engine\IO\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Utils\ArrayUtilsTPP.hpp">
+      <Filter>소스 파일\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Utils\ArrayUtils.hpp">
+      <Filter>헤더 파일\Engine\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
