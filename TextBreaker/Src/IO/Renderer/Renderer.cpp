@@ -25,7 +25,7 @@ TextGameEngine::IO::ConsoleRenderer::Renderer::Renderer(short xSize, short ySize
         _clearZDepth = _clearZDepthMax;
     }
 
-    _pixelCount = _screenSize.X * _screenSize.Y;
+    _pixelCount = static_cast<uint32_t>(_screenSize.X) * static_cast<uint32_t>(_screenSize.Y);
 
     _drawRegion.Left=0;
     _drawRegion.Top = 0;
